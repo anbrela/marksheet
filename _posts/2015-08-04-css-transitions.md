@@ -1,26 +1,26 @@
 ---
 layout: post
-title: "CSS <strong>transitions</strong>"
-subtitle: "From one rule to another"
+title: "CSS <strong>transiciones</strong>"
+subtitle: "De una regla a otra"
 section: css
 ---
 
-CSS <strong>transitions</strong> allow to smoothly go from one element's state to another. How it works is that individual **properties** are animated from an **initial** to a **final** state.
+Las <strong>transiciones</strong> en CSS permiten pasar sin problemas del estado de un elemento a otro. Funciona de manera en que las propiedades **individuales** se animan de un estado **inicial** a uno **final**.
 
-You can define:
+Puedes definir:
 
-* `transition-property`: which **properties** to animate
-* `transition-duration`: **how long** the animation lasts
-* `transition-timing-function`: how the **intermediate states** are calculated
-* `transition-delay`: to start the animation **after** a certain amount of time
+- `transition-property`: las **propiedades** a animar
+- `transition-duration`: **cuanto dura** la animación
+- `transition-timing-function`: como se calcula el **cálculo intermediario**
+- `transition-delay`: para empezar la animación **después** de un tiempo determinado
 
-You can set each CSS property individually, or use the shorthand version: `transition`. In that case, only the **duration is mandatory**.
+Puede establecer cada propiedad CSS individualmente o utilizar la versión abreviada: 'transición'. En ese caso, solo la duración **es obligatoria**.
 
-Keep in mind that a **transition is a specific kind of _animation_, where there's only a start and an end state**.
+Tenga en cuenta que una **transición es un tipo específico de _animation_, donde solo hay un inicio y un estado final**
 
-### Quick example
+.### Ejemplo Rápido
 
-Transitions are often used on **hover states**.
+Las transiciones se utilizan a menudo en **hover states**.
 
 {% highlight css %}
 a{ background: lightgrey; color: grey;}
@@ -33,13 +33,13 @@ a.with-transition{ transition: 1s;}
   <a class="with-transition">With transition</a>
 </div>
 
-Instead of the hover CSS rules being **instantaneous**, both the background _and_ the text colors are slowly animated.
+En lugar de que las reglas CSS flotantes sean **instantáneas**, tanto el fondo _como_ los colores de texto se animan lentamente.
 
 ### transition-duration
 
-A transition's duration is the only CSS property needed to create a transition. It can either be set in **seconds** `2s` or **milliseconds** `100ms`.
+La duración de una transición es la única propiedad CSS necesaria para crear una transición.Se puede establecer en **segundos** '2s' o **milisegundos** '100ms'.
 
-If you want your transition to last **half a second**, you can either write `0.5s` or `500ms`. Depending on how fast you want your transitions to be, one unit might be easier and/or quicker to write.
+Si quieres que tu transición dure **medio segundo**, puedes escribir '0.5s' o '500ms'. Dependiendo de lo rápido que desee que sean sus transiciones, una unidad podría ser más fácil y/o más rápida de escribir.
 
 {% highlight css %}
 a{ background: lightgrey; color: grey;}
@@ -49,18 +49,18 @@ a.with-slow-transition{ transition: 3s;}
 {% endhighlight %}
 
 <div class="result" id="result-842">
-  <a>Without transition</a>
-  <a class="with-fast-transition">A 0.5s transition</a>
-  <a class="with-slow-transition">A 3s transition</a>
+  <a>Sin transición</a>
+  <a class="with-fast-transition">Transición de 0.5s</a>
+  <a class="with-slow-transition">3s de transición</a>
 </div>
 
 ### transition-property
 
-Only **1/3** of CSS properties can be animated. Mozilla has a [complete list](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animated_properties).
+Solo se puede animar **1/3** de las propiedades CSS. Mozilla tiene una [lista completa](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animated_properties).
 
-By default, the `transition-property` property has a value of `all`, which simply means it will animate all possible properties.
+De forma predeterminada, la propiedad 'transition-property' tiene un valor de 'all', lo que simplemente significa que animará todas las propiedades posibles.
 
-You can decide to only animate 1 or several properties.
+Solo puede decidir animar 1 o varias propiedades.
 
 {% highlight css %}
 a{ background: lightgrey; color: grey;}
@@ -70,44 +70,45 @@ a.with-all-transition{ transition-duration: 2s;}
 {% endhighlight %}
 
 <div class="result" id="result-843">
-  <a>Without transition</a>
-  <a class="with-background-transition">With only background transition</a>
-  <a class="with-all-transition">With all transitions</a>
+  <a>Sin transición</a>
+  <a class="with-background-transition">Con una transición de fondo</a>
+  <a class="with-all-transition">Con todas las transiciones</a>
 </div>
 
-The `border` property is fully animatable and allows to easily visualize the slow (2 seconds) transition.
+La propiedad 'border' es totalmente animable y permite visualizar fácilmente la transición lenta (2 segundos).
 
 ### transition-timing-function
 
-The timing function determines how each property's **value** is calculated **during the transition**.
+La función de sincronización determina cómo se calcula **value** de cada propiedad **durante la transición**.
 
-By default, the transition is **eased**: it accelerates at the start and slows down at the end.
+De forma predeterminada, la transición es **eased**: se acelera al principio y se ralentiza al final.
 
-You can ensure that the transition will happen at a **constant speed**. Timing functions can make the transition **accelerate** and/or **slow down**.
+Puede asegurarse de que la transición se realizará a una velocidad constante **.Las funciones de sincronización pueden hacer que la transición **accelerate** y/o **slow down\*\*.
 
-The easiest way to visualize timing functions is by altering **position properties**, like `left`.
+La forma más fácil de visualizar las funciones de sincronización es alterando las propiedades **position**, como 'left'.
 
 {% highlight css %}
 div{ left: 0; position: relative; transition: 1s;}
 main:hover div{ left: 200px;}
-.ease{ transition-timing-function: ease;} /* Default behavior */
-.linear{ transition-timing-function: linear;} /* Constant speed */
+.ease{ transition-timing-function: ease;} /_ Default behavior _/
+.linear{ transition-timing-function: linear;} /_ Constant speed _/
 .ease-in{ transition-timing-function: ease-in;}
 .ease-out{ transition-timing-function: ease-out;}
 .ease-in-out{ transition-timing-function: ease-out;}
 {% endhighlight %}
 
 {% highlight html %}
+
 <main>
-  <p><strong>Ease</strong>: slow start, fast middle, slow end</p>
+  <p><strong>Ease</strong>: empieza lento, rápido en la mitad, final lento</p>
   <div class="ease"></div>
-  <p><strong>Linear</strong>: constant speed</p>
+  <p><strong>Linear</strong>: velocidad lineal</p>
   <div class="linear"></div>
-  <p><strong>Ease In</strong>: slow start, fast end</p>
+  <p><strong>Ease In</strong>: inicio lento, rápido final</p>
   <div class="ease-in"></div>
-  <p><strong>Ease Out</strong>: fast start, slow end</p>
+  <p><strong>Ease Out</strong>: inicio lento, final lento</p>
   <div class="ease-out"></div>
-  <p><strong>Ease In Out</strong>: like ease, but with more pronounced acceleration/deceleration curves</p>
+  <p><strong>Ease In Out</strong>: como el **ease**, but with more pronounced acceleration/deceleration curves</p>
   <div class="ease-in-out"></div>
 </main>
 {% endhighlight %}
@@ -148,6 +149,7 @@ a.with-delay{ transition-delay: 1s;}
 {% endhighlight %}
 
 {% highlight html %}
+
 <div>
   <p>Hover the grey area</p>
   <a>Without any delay</a>
